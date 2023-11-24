@@ -573,7 +573,20 @@ int ImageMatchSubImage(Image img1, int x, int y, Image img2) { ///
 int ImageLocateSubImage(Image img1, int* px, int* py, Image img2) { ///
   assert (img1 != NULL);
   assert (img2 != NULL);
-  // Insert your code here!
+
+  int i,j;
+  for (i = 0; i < img1 -> width; i++){
+    for (j = 0; j < img1 -> height; j++){
+      if(ImageValidRect(img1,i,j,img2->width,img2->height)) {
+        if(ImageMatchSubImage(img1,i,j,img2)){
+          *px = i;
+          *py = j;
+          return 1;
+        }
+      }
+    }
+  }
+  return 0;
 }
 
 
