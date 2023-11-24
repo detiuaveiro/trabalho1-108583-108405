@@ -458,7 +458,7 @@ Image ImageRotate(Image img) { ///
   Image image = ImageCreate(img ->height, img->width, img->maxval);
   for(x=0; x<img -> width; x++){
     for(y=0; y<img->height;y++){
-      ImageSetPixel(image,y,img -> width-1-x,ImageGetPixe(img,x,y));
+      ImageSetPixel(image,y,img -> width-1-x,ImageGetPixel(img,x,y));
     }
   }return image;
 }
