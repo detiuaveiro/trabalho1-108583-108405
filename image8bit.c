@@ -562,8 +562,11 @@ int ImageMatchSubImage(Image img1, int x, int y, Image img2) { ///
       LOCATE = 1;
       match1 = ImageGetPixel(img1, i+x, j+y);
       match2 = ImageGetPixel(img2, i, j);
+      if (match1 != match2){
+        return 0;
+      }
     }
-  }
+  }return 1;
 }
 
 /// Locate a subimage inside another image.
