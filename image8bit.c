@@ -335,7 +335,6 @@ int ImageValidRect(Image img, int x, int y, int w, int h) { ///
   assert (img != NULL);
   if(x + w-1 > img -> width-1 || y+h-1 > img->height-1)
     return -1;
-  return 1;
 }
 
 /// Pixel get & set operations
@@ -403,10 +402,7 @@ void ImageThreshold(Image img, uint8 thr) { ///
     for(y=0; y<img -> height; y++){
       if(ImageGetPixel(img,x,y)<thr){
         ImageSetPixel(img,x,y,0);
-      }
-      else{
-        ImageSetPixel(img,x,y,img->maxval);
-      }
+      }///else{ImageSetPixel(img,x,y,img->maxval)}
     }
   }
 }
@@ -557,10 +553,17 @@ void ImageBlend(Image img1, int x, int y, Image img2, double alpha) { ///
 /// Returns 1 (true) if img2 matches subimage of img1 at pos (x, y).
 /// Returns 0, otherwise.
 int ImageMatchSubImage(Image img1, int x, int y, Image img2) { ///
+  int i,j,match1,match2;
   assert (img1 != NULL);
   assert (img2 != NULL);
   assert (ImageValidPos(img1, x, y));
-  // Insert your code here!
+  for(i=0;i<img2 -> width; i++){
+    for(j=0; j<img2 ->height; i++){
+      LOCATE = 1;
+      match1 = ImageGetPixel(img1, i+x, j+y);
+      match2 = ImageGetPixel(img2, i, j);
+    }
+  }
 }
 
 /// Locate a subimage inside another image.
@@ -583,4 +586,3 @@ int ImageLocateSubImage(Image img1, int* px, int* py, Image img2) { ///
 void ImageBlur(Image img, int dx, int dy) { ///
   // Insert your code here!
 }
-
