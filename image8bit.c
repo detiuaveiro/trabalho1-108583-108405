@@ -502,7 +502,7 @@ Image ImageCrop(Image img, int x, int y, int w, int h) { ///
     for(int j = y; j < y+h; j++){
       ImageSetPixel(image,i-x,j-y,ImageGetPixel(img,i,j));
     }
-  }
+  }return image;
 }
 
 
@@ -541,7 +541,7 @@ void ImageBlend(Image img1, int x, int y, Image img2, double alpha) { ///
   }else if(alpha >= 0 && alpha <= 1){
     for(i = x; i-x < img2 -> width; i++){
       for(j = y; j-y < img2 -> height; j++){
-        blend1 = (ImageGetPixel(img1,i,j)*(1-alpha));
+        blend1 = (ImageGetPixel(img1,i,j)*alpha);
         blend2 = (ImageGetPixel(img2,i-x,j-y)*(1-alpha));
         ImageSetPixel(img1, i,j, (uint8)(blend1+blend2));
       }
