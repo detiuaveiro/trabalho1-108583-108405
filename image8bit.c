@@ -153,8 +153,6 @@ void ImageInit(void) { ///
 
 // Macros to simplify accessing instrumentation counters:
 #define PIXMEM InstrCount[0]
-// Add more macros here...
-
 #define LOCATE InstrCount[1]
 #define BLUR InstrCount[2]
 #define BLUB InstrCount[3]
@@ -605,10 +603,10 @@ void ImageBlur(Image img, int dx, int dy) { ///
     for(y = 0; y < img -> height; y++){
       for (int i = x - dx; i <= x + dx; i++) {
         for (int j = y - dy; j <= y + dy; j++) {
-          ///BLUR++;
+          BLUR++;
           if (i >= 0 && i < img->width && j >= 0 && j < img->height) {
-            ///BLUB++; 
-            some += ImageGetPixel(*img, i, j);
+            BLUB++; 
+            some += ImageGetPixel(img, i, j);
             count++;
           }
         }
