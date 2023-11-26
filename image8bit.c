@@ -404,11 +404,9 @@ void ImageThreshold(Image img, uint8 thr) { ///
   assert (img != NULL);
   for(x=0; x<img->width; x++){
     for(y=0; y<img -> height; y++){
-      if(ImageGetPixel(img,x,y)<thr){
-        ImageSetPixel(img,x,y,0);
-      }else{
-        ImageSetPixel(img,x,y,img->maxval);
-      }
+      uint8 pixelValue = ImageGetPixel(img, x, y);
+      uint8 newPixelValue = (pixelValue < thr) ? 0 : img->maxval;
+      ImageSetPixel(img, x, y, newPixelValue);
     }
   }
 }
