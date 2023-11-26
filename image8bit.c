@@ -605,10 +605,10 @@ void ImageBlur(Image img, int dx, int dy) { ///
     for(y = 0; y < img -> height; y++){
       for (int i = x - dx; i <= x + dx; i++) {
         for (int j = y - dy; j <= y + dy; j++) {
+          BLUR++;
           if (i >= 0 && i < img->width && j >= 0 && j < img->height) {
-            BLUR += 1; 
+            BLUB++; 
             some += ImageGetPixel(img, i, j);
-            BLUB += 1; 
             count++;
           }
         }
