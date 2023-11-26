@@ -423,12 +423,8 @@ void ImageBrighten(Image img, double factor) { ///
     for(y=0; y<img -> height; y++){
       uint8 p = ImageGetPixel(img,x,y);
       if (factor != 1.0){
-        p = (uint8)((p*factor)+0.5);
-        if(p > img -> maxval){
-          ImageSetPixel(img, x, y, img -> maxval);
-        }else{
-          ImageSetPixel(img,x,y,p);
-        }
+        p = (uint8)((p * factor) + 0.5);
+        ImageSetPixel(img, x, y, (p > img->maxval) ? img->maxval : p);
       }
     }
   }
