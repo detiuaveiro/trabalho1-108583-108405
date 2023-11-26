@@ -332,11 +332,13 @@ int ImageValidPos(Image img, int x, int y) { ///
 /// Check if rectangular area (x,y,w,h) is completely inside img.
 int ImageValidRect(Image img, int x, int y, int w, int h) { ///
   assert (img != NULL);
-  if (x < 0 || y < 0 || w <= 0 || h <= 0) {
+  if(x + w-1 > img -> width-1 || y+h-1 > img->height-1){
     return -1;
-  }else if (x + w > img->width || y + h > img->height) {
+  }
+  if (x + w > img -> width || y + h > img ->height){
     return -1;
-  }return 0;
+  }
+  return 0;
 }
 
 /// Pixel get & set operations
