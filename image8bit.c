@@ -597,27 +597,32 @@ int ImageLocateSubImage(Image img1, int* px, int* py, Image img2) { ///
 /// The image is changed in-place.
 void ImageBlur(Image img, int dx, int dy) {
   int x, y; ///definir i,j da erro por alguma razao, diz que nao sao usadas mas sao wtf
-  double count = 0.0, some = 0.0, average;
+  double count, some, average;
   Image image = ImageCreate(img->width, img->height, img->maxval);
+  for(int g = 0; g < img -> width; g++ ){
+    for(int v = 0; v < img-> height; v++){
+      ImageSetPixel(image,g,v,ImageGetPixel(img,g,v));
+    }
+  }
   for (x = 0; x < img->width; x++) {
     for (y = 0; y < img->height; y++) {
+      some = 0.0;
+      count = 0.0;
       for (int i = x - dx; i <= x + dx; i++) {
         for (int j = y - dy; j <= y + dy; j++) {
-          BLUR++;
           if (i >= 0 && i < img->width && j >= 0 && j < img->height) {
-            BLUB++;
             some += ImageGetPixel(img, i, j);
             count++;
           }
         }
       }
       average = some / count;
-      ImageSetPixel(image, x, y, (uint8)average);
+      ImageSetPixel(image, x, y, (uint8)(average+0.5));
     }
   }
   for (x = 0; x < img->width; x++) {
     for (y = 0; y < img->height; y++) {
-      ImageSetPixel(image, x, y, ImageGetPixel(image, x, y));
+      ImageSetPixel(img, x, y, ImageGetPixel(image, x, y));
     }
   }
   ImageDestroy(&image);
