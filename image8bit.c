@@ -421,10 +421,10 @@ void ImageBrighten(Image img, double factor) { ///
   assert (factor >= 0.0); //é suposto ter isto?
   for(x=0;x<img -> width; x++){
     for(y=0; y<img -> height; y++){
-      uint8 p = ImageGetPixel(img,x,y);
+      uint8 bright = ImageGetPixel(img,x,y);
       if (factor != 1.0){
-        p = (uint8)((p * factor) + 0.5);
-        ImageSetPixel(img, x, y, (p > img->maxval) ? img->maxval : p);
+        bright = (uint8)((bright * factor) + 0.5);
+        ImageSetPixel(img, x, y, (bright > img->maxval) ? img->maxval : bright);
       }
     }
   }
