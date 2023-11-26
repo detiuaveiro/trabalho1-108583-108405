@@ -78,8 +78,36 @@ test9: $(PROGS) setup
 	./imageTool test/original.pgm blur 7,7 save blur.pgm
 	cmp blur.pgm test/blur.pgm
 
+# testes adicionais para testar o blur
+# pgm small
 testblur1: $(PROGS) setup
+	./imageTool pgm/small/art3_222x217.pgm blur 1,1 save blur.pgm toc
+
+testblur2: $(PROGS) setup
+	./imageTool pgm/small/art4_300x300.pgm blur 1,1 save blur.pgm toc
+
+testblur3: $(PROGS) setup
+	./imageTool pgm/small/bird_256x256.pgm blur 1,1 save blur.pgm toc
+
+# pgm medium
+testblur4: $(PROGS) setup
 	./imageTool pgm/medium/airfield-05_640x480.pgm blur 1,1 save blur.pgm toc
+
+testblur5: $(PROGS) setup
+	./imageTool pgm/medium/tac-pulmao_512x512.pgm blur 1,1 save blur.pgm toc
+
+testblur6: $(PROGS) setup
+	./imageTool pgm/medium/tools_2_765x460.pgm blur 1,1 save blur.pgm toc
+
+# pgm large
+testblur7: $(PROGS) setup
+	./imageTool pgm/large/airfield-05_1600x1200.pgm blur 1,1 save blur.pgm toc
+
+testblur8: $(PROGS) setup
+	./imageTool pgm/large/einstein_940x940.pgm blur 1,1 save blur.pgm toc
+
+testblur9: $(PROGS) setup
+	./imageTool pgm/large/ireland_03_1600x1200.pgm blur 1,1 save blur.pgm toc
 
 .PHONY: tests
 tests: $(TESTS)
