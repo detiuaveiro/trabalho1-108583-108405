@@ -542,9 +542,8 @@ void ImageBlend(Image img1, int x, int y, Image img2, double alpha) { ///
         blend1 = (1-alpha)*ImageGetPixel(img1,i,j);
         blend2 = alpha * ImageGetPixel(img2,i-x,j-y);
         ImageSetPixel(img1, i,j, (uint8)(blend1+blend2+0.5)); 
-        ///+0.5 para arredondar, 7.51 n vai arredondar para 8 pq 0.01 n da para arredondar, da sempre floor
-      }
-    }
+      }///+0.5 para arredondar, 7.51 nao vai arredondar para 8
+    } ///porque 0.01 nao da para arredondar, da sempre floor
   }
 }
 
@@ -624,7 +623,8 @@ void ImageBlur(Image img, int dx, int dy) {
       }
       average = some / count;
       ImageSetPixel(image, x, y, (uint8)(average+0.5));
-    }
+    }///+0.5 para arredondar, 7.51 nao vai arredondar para 8 
+    ///porque 0.01 nao da para arredondar, da sempre floor
   }
   for (x = 0; x < img->width; x++) {
     for (y = 0; y < img->height; y++) {
