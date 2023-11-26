@@ -608,7 +608,7 @@ void ImageBlur(Image img, int dx, int dy) { ///
           ///BLUR++;
           if (i >= 0 && i < img->width && j >= 0 && j < img->height) {
             ///BLUB++; 
-            some += ImageGetPixel(img, i, j);
+            some += ImageGetPixel(*img, i, j);
             count++;
           }
         }
