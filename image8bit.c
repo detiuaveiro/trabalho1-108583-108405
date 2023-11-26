@@ -338,7 +338,7 @@ int ImageValidRect(Image img, int x, int y, int w, int h) { ///
   if (x + w > img -> width || y + h > img ->height){
     return -1;
   }
-  return 0;
+  return 1;
 }
 
 /// Pixel get & set operations
