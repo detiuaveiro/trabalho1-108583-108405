@@ -558,15 +558,15 @@ int ImageMatchSubImage(Image img1, int x, int y, Image img2) { ///
   assert (img2 != NULL);
   assert (ImageValidPos(img1, x, y));
   for(i=0;i<img2 -> width; i++){
-    for(j=0; j<img2 ->height; i++){
-      LOCATE = 1;
+    for(j=0; j<img2 ->height; j++){
       match1 = ImageGetPixel(img1, i+x, j+y);
       match2 = ImageGetPixel(img2, i, j);
       if (match1 != match2){
         return 0;
       }
     }
-  }return 1;
+  }LOCATE ++;
+  return 1;
 }
 
 /// Locate a subimage inside another image.
