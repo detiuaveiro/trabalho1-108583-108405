@@ -146,16 +146,12 @@ static int check(int condition, const char* failmsg) {
 void ImageInit(void) { ///
   InstrCalibrate();
   InstrName[0] = "pixmem";  // InstrCount[0] will count pixel array acesses
-  InstrName[1] = "locate";
-  InstrName[2] = "blur"; 
-  InstrName[3] = "blub"; 
+  
 }
 
 // Macros to simplify accessing instrumentation counters:
 #define PIXMEM InstrCount[0]
-#define LOCATE InstrCount[1]
-#define BLUR InstrCount[2]
-#define BLUB InstrCount[3]
+
 
 // TIP: Search for PIXMEM or InstrCount to see where it is incremented!
 
@@ -186,7 +182,6 @@ Image ImageCreate(int width, int height, uint8 maxval) { ///
       free(image);
       return NULL;
     }return image;
-
 }
 
 /// Destroy the image pointed to by (*imgp).
@@ -565,8 +560,7 @@ int ImageMatchSubImage(Image img1, int x, int y, Image img2) { ///
         return 0;
       }
     }
-  }LOCATE ++;
-  return 1;
+  }return 1;
 }
 
 /// Locate a subimage inside another image.
