@@ -416,7 +416,7 @@ void ImageThreshold(Image img, uint8 thr) { ///
 void ImageBrighten(Image img, double factor) { ///
   int x,y;
   assert (img != NULL);
-  assert (factor >= 0.0); //é suposto ter isto?
+  assert (factor >= 0.0); //estava comentado originalmente
   for(x=0;x<img -> width; x++){
     for(y=0; y<img -> height; y++){
       uint8 bright = ImageGetPixel(img,x,y);
