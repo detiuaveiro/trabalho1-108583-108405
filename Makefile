@@ -109,6 +109,96 @@ testblur8: $(PROGS) setup
 testblur9: $(PROGS) setup
 	./imageTool pgm/large/ireland_03_1600x1200.pgm blur 1,1 save blur.pgm toc
 
+testblur10: $(PROGS) setup
+	./imageTool pgm/small/art3_222x217.pgm blur 3,3 save blur.pgm toc
+
+testblur11: $(PROGS) setup
+	./imageTool pgm/small/art4_300x300.pgm blur 3,3 save blur.pgm toc
+
+testblur12: $(PROGS) setup
+	./imageTool pgm/small/bird_256x256.pgm blur 3,3 save blur.pgm toc
+
+testblur13: $(PROGS) setup
+	./imageTool pgm/medium/airfield-05_640x480.pgm blur 3,3 save blur.pgm toc
+
+testblur14: $(PROGS) setup
+	./imageTool pgm/medium/tac-pulmao_512x512.pgm blur 3,3 save blur.pgm toc
+
+testblur15: $(PROGS) setup
+	./imageTool pgm/medium/tools_2_765x460.pgm blur 3,3 save blur.pgm toc
+
+testblur16: $(PROGS) setup
+	./imageTool pgm/large/airfield-05_1600x1200.pgm blur 3,3 save blur.pgm toc
+
+testblur17: $(PROGS) setup
+	./imageTool pgm/large/einstein_940x940.pgm blur 3,3 save blur.pgm toc
+
+testblur18: $(PROGS) setup
+	./imageTool pgm/large/ireland_03_1600x1200.pgm blur 3,3 save blur.pgm toc
+
+testblur19: $(PROGS) setup
+	./imageTool pgm/small/art3_222x217.pgm blur 6,6 save blur.pgm toc
+
+testblur20: $(PROGS) setup
+	./imageTool pgm/small/art4_300x300.pgm blur 6,6 save blur.pgm toc
+
+testblur21: $(PROGS) setup
+	./imageTool pgm/small/bird_256x256.pgm blur 6,6 save blur.pgm toc
+
+testblur22: $(PROGS) setup
+	./imageTool pgm/medium/airfield-05_640x480.pgm blur 6,6 save blur.pgm toc
+
+testblur23: $(PROGS) setup
+	./imageTool pgm/medium/tac-pulmao_512x512.pgm blur 6,6 save blur.pgm toc
+
+testblur24: $(PROGS) setup
+	./imageTool pgm/medium/tools_2_765x460.pgm blur 6,6 save blur.pgm toc
+
+testblur25: $(PROGS) setup
+	./imageTool pgm/large/airfield-05_1600x1200.pgm blur 6,6 save blur.pgm toc
+
+testblur26: $(PROGS) setup
+	./imageTool pgm/large/einstein_940x940.pgm blur 6,6 save blur.pgm toc
+
+testblur27: $(PROGS) setup
+	./imageTool pgm/large/ireland_03_1600x1200.pgm blur 6,6 save blur.pgm toc
+
+testblur28: $(PROGS) setup
+	./imageTool pgm/small/art3_222x217.pgm blur 9,9 save blur.pgm toc
+
+testblur29: $(PROGS) setup
+	./imageTool pgm/small/art4_300x300.pgm blur 9,9 save blur.pgm toc
+
+testblur30: $(PROGS) setup
+	./imageTool pgm/small/bird_256x256.pgm blur 9,9 save blur.pgm toc
+
+testblur31: $(PROGS) setup
+	./imageTool pgm/medium/airfield-05_640x480.pgm blur 9,9 save blur.pgm toc
+
+testblur32: $(PROGS) setup
+	./imageTool pgm/medium/tac-pulmao_512x512.pgm blur 9,9 save blur.pgm toc
+
+testblur33: $(PROGS) setup
+	./imageTool pgm/medium/tools_2_765x460.pgm blur 9,9 save blur.pgm toc
+
+testblur34: $(PROGS) setup
+	./imageTool pgm/large/airfield-05_1600x1200.pgm blur 9,9 save blur.pgm toc
+
+testblur35: $(PROGS) setup
+	./imageTool pgm/large/einstein_940x940.pgm blur 9,9 save blur.pgm toc
+
+testblur36: $(PROGS) setup
+	./imageTool pgm/large/ireland_03_1600x1200.pgm blur 9,9 save blur.pgm toc
+
+testlocate1: $(PROGS) setup
+	./imageTool test/small.pgm test/paste.pgm locate
+
+testlocate2: $(PROGS) setup
+	./imageTool test/small.pgm test/small.pgm locate
+
+testlocate3: $(PROGS) setup
+	./imageTool test/small.pgm test/blend.pgm locate
+
 .PHONY: tests
 tests: $(TESTS)
 

@@ -551,6 +551,7 @@ void ImageBlend(Image img1, int x, int y, Image img2, double alpha) { ///
 /// Compare an image to a subimage of a larger image.
 /// Returns 1 (true) if img2 matches subimage of img1 at pos (x, y).
 /// Returns 0, otherwise.
+int comparacoes = 0;
 int ImageMatchSubImage(Image img1, int x, int y, Image img2) { ///
   int i,j,match1,match2;
   assert (img1 != NULL);
@@ -558,6 +559,7 @@ int ImageMatchSubImage(Image img1, int x, int y, Image img2) { ///
   assert (ImageValidPos(img1, x, y));
   for(i=0;i<img2 -> width; i++){
     for(j=0; j<img2 ->height; j++){
+      comparacoes++;
       match1 = ImageGetPixel(img1, i+x, j+y);
       match2 = ImageGetPixel(img2, i, j);
       if (match1 != match2){
@@ -574,6 +576,7 @@ int ImageMatchSubImage(Image img1, int x, int y, Image img2) { ///
 /// If no match is found, returns 0 and (*px, *py) are left untouched.
 int ImageLocateSubImage(Image img1, int* px, int* py, Image img2) { ///
   int i,j;
+  int comparacoes2 = 0;
   assert (img1 != NULL);
   assert (img2 != NULL);
   for (i = 0; i < img1 -> width; i++){
@@ -582,6 +585,8 @@ int ImageLocateSubImage(Image img1, int* px, int* py, Image img2) { ///
         if(ImageMatchSubImage(img1,i,j,img2)){
           *px = i;
           *py = j;
+          printf("Comparaçoes: %d\n", comparacoes2);
+          printf("Comparaçoes com o Match: %d\n", comparacoes);
           return 1;
         }
       }
