@@ -599,7 +599,7 @@ int ImageLocateSubImage(Image img1, int* px, int* py, Image img2) { ///
 /// The image is changed in-place.
 void ImageBlur(Image img, int dx, int dy) { ///
   int x,y,i,j;
-  double count,some, average;
+  double count = 0.0,some = 0.0, average;
   Image image = ImageCreate(img -> width, img -> height, img->maxval);
   for(x = 0; x < img -> width; x++){
     for(y = 0; y < img -> height; y++){
